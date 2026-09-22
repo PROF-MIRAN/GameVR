@@ -1,66 +1,103 @@
-# GAME PROJECT TITLE
+# FPS Game Planning Example
 
-## 1. Game Overview
+## 1. 게임 개요
 
 | 항목 | 내용 |
 |---|---|
-| 게임 제목 | Project Escape |
-| 장르 | FPS / Action |
+| 게임 제목 | **O O O** |
+| 장르 | FPS / Action / Survival |
+| 개발 엔진 | Unreal Engine 5.4.4 |
 | 플랫폼 | PC |
-| 엔진 | Unreal Engine |
 | 플레이 방식 | Single Player |
+| 시점 | First Person |
+| 예상 플레이 시간 | 10~15분 |
 
-## 2. Game Concept
+### 한 줄 소개
+> 감염된 연구시설에서 적을 처치하고 보안카드를 획득하여 제한 시간 안에 탈출하는 FPS 게임
 
-폐쇄된 연구소에서 적을 피해 탈출하는
-1인칭 액션 게임
+---
 
-## 3. Core Gameplay Loop
+## 2. 게임 컨셉
 
+플레이어는 정체불명의 사고가 발생한 연구시설 내부에서 깨어난다.
+
+시설 내부에는 감염된 적들이 등장하며, 플레이어는 무기를 사용하여 적을 제거하고 탈출에 필요한 **보안카드(Key Card)**를 찾아야 한다.
+
+최종적으로 보안카드를 이용해 출구를 개방하고 연구시설을 탈출하면 게임을 클리어한다.
+
+### 핵심 키워드
+
+- **Explore** : 연구시설 탐색
+- **Combat** : 적과의 FPS 전투
+- **Collect** : 탄약 및 보안카드 획득
+- **Escape** : 탈출구 개방 및 게임 클리어
+
+---
+
+## 3. 게임 목표
+
+플레이어의 최종 목표는 다음과 같다.
+
+1. 연구시설 내부를 탐색한다.
+2. 등장하는 적을 처치한다.
+3. 보안카드를 획득한다.
+4. 탈출구까지 이동한다.
+5. 보안카드를 사용하여 문을 연다.
+6. 제한 시간 안에 탈출하면 게임 클리어
+
+---
+
+## 4. Core Gameplay Loop
+
+게임의 핵심 플레이 흐름은 다음과 같다.
+
+```text
 탐색
-↓
+  ↓
 적 발견
-↓
-전투
-↓
-아이템 획득
-↓
-다음 지역 이동
+  ↓
+조준 및 사격
+  ↓
+적 처치
+  ↓
+아이템 / 탄약 획득
+  ↓
+다음 구역 이동
+  ↓
+보안카드 획득
+  ↓
+탈출
+```
 
-![Gameplay Loop](images/gameplay_loop.png)
+플레이어는 게임이 종료될 때까지 **탐색 → 전투 → 아이템 획득 → 이동**의 과정을 반복한다.
 
-## 4. Player Actions
+---
 
-- Move
-- Look
-- Jump
-- Run
-- Attack
-- Interaction
+## 5. 플레이어 조작
 
-## 5. Game System
-
-- Character Movement
-- Combat System
-- Enemy System
-- Health System
-- Game Clear System
-
-## 6. Level Design
-
-![Map](images/map.png)
-
-## 7. UI Design
-
-![UI](images/ui_mockup.png)
-
-## 8. Development Plan
-
-| Priority | Feature |
+| 입력 | 기능 |
 |---|---|
-| 1 | Character Movement |
-| 2 | Camera |
-| 3 | Combat |
-| 4 | Enemy |
-| 5 | UI |
-| 6 | Game Clear |
+| W / A / S / D | 캐릭터 이동 |
+| Mouse | 시점 회전 |
+| Left Click | 총 발사 |
+| Right Click | 조준 |
+| Space | 점프 |
+| Shift | 달리기 |
+| R | 재장전 |
+| E | 아이템 획득 / 문 상호작용 |
+
+---
+
+## 6. 플레이어 기능
+
+### 6.1 이동
+
+플레이어는 FPS 방식으로 맵 내부를 자유롭게 이동할 수 있다.
+
+주요 기능:
+
+- 앞으로 / 뒤로 이동
+- 좌 / 우 이동
+- 마우스 시점 회전
+- 점프
+- 달리기
